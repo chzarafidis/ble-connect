@@ -1,5 +1,20 @@
 input.onGesture(Gesture.Shake, function () {
-	
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+    basic.pause(200)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # # # # #
+        . . # . .
+        . . # . .
+        `)
+    basic.pause(200)
 })
 bluetooth.onBluetoothConnected(function () {
     basic.showLeds(`
@@ -9,7 +24,7 @@ bluetooth.onBluetoothConnected(function () {
         # . . . #
         . # # # .
         `)
-    ServoLite.SetDistancePerSecond(30)
+    ServoLite.SetDistancePerSecond(70)
 })
 bluetooth.onBluetoothDisconnected(function () {
     basic.showLeds(`
