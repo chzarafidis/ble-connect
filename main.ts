@@ -1,3 +1,6 @@
+input.onGesture(Gesture.Shake, function () {
+	
+})
 bluetooth.onBluetoothConnected(function () {
     basic.showLeds(`
         # # . # #
@@ -6,6 +9,7 @@ bluetooth.onBluetoothConnected(function () {
         # . . . #
         . # # # .
         `)
+    ServoLite.SetDistancePerSecond(30)
 })
 bluetooth.onBluetoothDisconnected(function () {
     basic.showLeds(`
@@ -16,6 +20,17 @@ bluetooth.onBluetoothDisconnected(function () {
         # . . . #
         `)
     ServoLite.stop()
+})
+input.onButtonPressed(Button.A, function () {
+    basic.showIcon(IconNames.Heart)
+    basic.pause(500)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
 })
 control.onEvent(EventBusSource.MES_DPAD_CONTROLLER_ID, EventBusValue.MICROBIT_EVT_ANY, function () {
     if (control.eventValue() == EventBusValue.MES_DPAD_BUTTON_A_DOWN) {
